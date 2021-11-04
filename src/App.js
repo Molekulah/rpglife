@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, ThemeProvider } from "@mui/system";
+import React from "react";
+import { createTheme } from "@mui/material/styles";
+import AppBar from "./Components/AppBar";
+import Main from "./Components/Main";
+
+const theme = createTheme({
+  palette: {
+    secondary: {
+      main: "#cdcdcd",
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <ThemeProvider theme={theme}>
+        <Box
+          sx={{
+            background: "aliceBlue",
+            marginTop: "-10px",
+            marginLeft: "-10px",
+            marginRight: "-8px",
+            marginBottom: "-10px",
+            height: "100vh",
+            overflow: "hidden",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <AppBar />
+          <Main />
+        </Box>
+      </ThemeProvider>
+    </>
   );
 }
 
